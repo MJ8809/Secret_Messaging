@@ -1,3 +1,20 @@
+""" Michael Stock """
+""" SDEV 140 21A """
+""" 4-20-2023 """
+
+""" Final Project GUI Application using tkinter, Git-hub , breezypython  """
+
+
+# """ def function for creating general un-sized window """
+
+from tkinter import *
+
+root = Tk()
+theLabel = Label(root, text="Secret Messaging")
+theLabel .pack()
+root.mainloop()
+
+
 def caesar_cipher(text, shift):
     """
     Encrypts a string using the Caesar cipher.
@@ -43,3 +60,24 @@ def caesar_cipher(text, shift):
 
     return result
 
+# """def function for creating frameworks within window """
+
+from tkinter import *
+
+root = Tk()
+topFrame = Frame(root)
+topFrame.pack()
+bottomFrame = Frame(root)
+bottomFrame.pack(side=BOTTOM)
+
+button1 = Button(topFrame, text= "Enter Message", fg="red")
+button2 = Button(topFrame, text= "Send Message", fg="blue")
+button3 = Button(bottomFrame, text= "Incoming Message", fg="green")
+button4 = Button(bottomFrame, text= "Decript Message ", fg="orange")
+
+button1.pack()
+button2.pack()
+button3.pack()
+button4.pack()
+
+root.mainloop()

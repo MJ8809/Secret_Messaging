@@ -1,45 +1,27 @@
-def caesar_cipher(text, shift):
-    """
-    Encrypts a string using the Caesar cipher.
-
-    Parameters:
-        text (str): The string to encrypt.
-        shift (int): The number of positions to shift the letters.
-
-    Returns:
-        str: The encrypted string.
-    """
-    result = ""
-
-    # Loop through each character in the text
-    for i in range(len(text)):
-        char = text[i]
-
-        # If the character is a letter, shift it by the specified amount
+def caesar_cipher(plain_text, shift):
+    cipher_text = ""
+    for char in plain_text:
         if char.isalpha():
-            # Get the ASCII code for the character
-            code = ord(char)
-
-            # Shift the code by the specified amount
-            shifted_code = code + shift
-
-            # If the shifted code is outside the range of A-Z or a-z, wrap it around
+            # Shift the character by the specified amount
+            shifted_char = chr((ord(char.lower()) - 97 + shift) % 26 + 97)
+            # Preserve the case of the original character
             if char.isupper():
-                if shifted_code > ord('Z'):
-                    shifted_code -= 26
-                elif shifted_code < ord('A'):
-                    shifted_code += 26
-            elif char.islower():
-                if shifted_code > ord('z'):
-                    shifted_code -= 26
-                elif shifted_code < ord('a'):
-                    shifted_code += 26
-
-            # Convert the shifted code back to a character and add it to the result
-            result += chr(shifted_code)
+                shifted_char = shifted_char.upper()
+            cipher_text += shifted_char
         else:
-            # If the character is not a letter, leave it unchanged
-            result += char
+            # Non-alphabetic characters are left unchanged
+            cipher_text += char
+    return cipher_text
 
-    return result
 
+# Get user input for the message and shift value
+message = input("Enter the message to encrypt: ")
+shift = int(input("Enter the shift value: "))
+
+# Encrypt the message using the Caesar cipher
+encrypted_message = caesar_cipher(message, shift)
+print("Encrypted message:", encrypted_message)
+
+# Decrypt the message using the same shift value
+decrypted_message = caesar_cipher(encrypted_message, -shift)
+print("Decrypted message:", decrypted_message)

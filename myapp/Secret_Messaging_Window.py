@@ -4,61 +4,101 @@
 
 """ Final Project GUI Application using tkinter, Git-hub , breezypythongui  """
 
-
 # """ def function for creating general un-sized window """
 
 from tkinter import *
 
-root = Tk()
+"""root = Tk()
 theLabel = Label(root, text="Secret Messaging")
-theLabel .pack()
+theLabel.pack()
+root.mainloop()"""
+
+from tkinter import *
+
+
+
+"""def caesar_cipher(plain_text, shift):
+    cipher_text = ""
+    for char in plain_text:
+        if char.isalpha():
+            # Shift the character by the specified amount
+            shifted_char = chr((ord(char.lower()) - 97 + shift) % 26 + 97)
+            # Preserve the case of the original character
+            if char.isupper():
+                shifted_char = shifted_char.upper()
+            cipher_text += shifted_char
+        else:
+            # Non-alphabetic characters are left unchanged
+            cipher_text += char
+    return cipher_text
+"""
+def encrypt_message():
+    input_text = user_input.get()
+    shift_value = int(shift_entry.get())
+    encrypted_text = caesar_cipher(input_text, shift_value)
+    output_label.config(text=f"Encrypted Message: {encrypted_text}")
+
+
+def decrypt_message():
+    input_text = user_input.get()
+    shift_value = -int(shift_entry.get())
+    decrypted_text = caesar_cipher(input_text, shift_value)
+    output_label.config(text=f"Decrypted Message: {decrypted_text}")
+
+
+root = Tk()
+
+theLabel = Label(root, text="Secret Messaging")
+theLabel.pack()
+
+user_input_label = Label(root, text="Enter your message:")
+user_input_label.pack()
+user_input = Entry(root)
+user_input.pack()
+
+shift_label = Label(root, text="Enter the shift value:")
+shift_label.pack()
+shift_entry = Entry(root)
+shift_entry.pack()
+
+encrypt_button = Button(root, text="Encrypt Message", command=encrypt_message)
+encrypt_button.pack()
+
+decrypt_button = Button(root, text="Decrypt Message", command=decrypt_message)
+decrypt_button.pack()
+
+output_label = Label(root, text="")
+output_label.pack()
+
 root.mainloop()
 
-
-def caesar_cipher(text, shift):
-    """
-    Encrypts a string using the Caesar cipher.
-
-    Parameters:
-        text (str): The string to encrypt.
-        shift (int): The number of positions to shift the letters.
-
-    Returns:
-        str: The encrypted string.
-    """
-    result = ""
-
-    # Loop through each character in the text
-    for i in range(len(text)):
-        char = text[i]
-
-        # If the character is a letter, shift it by the specified amount
+"""def caesar_cipher(plain_text, shift):
+    cipher_text = ""
+    for char in plain_text:
         if char.isalpha():
-            # Get the ASCII code for the character
-            code = ord(char)
-
-            # Shift the code by the specified amount
-            shifted_code = code + shift
-
-            # If the shifted code is outside the range of A-Z or a-z, wrap it around
+            # Shift the character by the specified amount
+            shifted_char = chr((ord(char.lower()) - 97 + shift) % 26 + 97)
+            # Preserve the case of the original character
             if char.isupper():
-                if shifted_code > ord('Z'):
-                    shifted_code -= 26
-                elif shifted_code < ord('A'):
-                    shifted_code += 26
-            elif char.islower():
-                if shifted_code > ord('z'):
-                    shifted_code -= 26
-                elif shifted_code < ord('a'):
-                    shifted_code += 26
-
-            # Convert the shifted code back to a character and add it to the result
-            result += chr(shifted_code)
+                shifted_char = shifted_char.upper()
+            cipher_text += shifted_char
         else:
-            # If the character is not a letter, leave it unchanged
-            result += char
+            # Non-alphabetic characters are left unchanged
+            cipher_text += char
+    return cipher_text
 
-    return result
+
+# Get user input for the message and shift value
+message = input("Enter the message to encrypt: ")
+shift = int(input("Enter the shift value: "))
+
+# Encrypt the message using the Caesar cipher
+encrypted_message = caesar_cipher(message, shift)
+print("Encrypted message:", encrypted_message)
+
+# Decrypt the message using the same shift value
+decrypted_message = caesar_cipher(encrypted_message, -shift)
+print("Decrypted message:", decrypted_message)"""
 
 # """def function for creating frameworks within window """
 
@@ -70,10 +110,16 @@ topFrame.pack()
 bottomFrame = Frame(root)
 bottomFrame.pack(side=BOTTOM)
 
-button1 = Button(topFrame, text= "Enter Message", fg="red")
-button2 = Button(topFrame, text= "Send Message", fg="blue")
-button3 = Button(bottomFrame, text= "Incoming Message", fg="green")
-button4 = Button(bottomFrame, text= "Decript Message ", fg="orange")
+
+"""root = Tk()"""
+"""theLabel = Label(root, text="Secret Messaging")"""
+"""theLabel.pack()"""
+"""root.mainloop()"""
+
+button1 = Button(topFrame, text="Enter Message", fg="red")
+button2 = Button(topFrame, text="Send Message", fg="blue")
+button3 = Button(bottomFrame, text="Incoming Message", fg="green")
+button4 = Button(bottomFrame, text="Decrypt Message ", fg="orange")
 
 button1.pack()
 button2.pack()

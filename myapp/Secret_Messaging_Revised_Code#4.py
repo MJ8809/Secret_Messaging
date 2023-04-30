@@ -1,3 +1,9 @@
+""" Michael Stock """
+""" SDEV 140 21A """
+""" 4-20-2023 """
+
+""" Final Project GUI Application using tkinter, Git-hub """
+
 import tkinter as tk
 from tkinter import ttk
 
@@ -18,7 +24,7 @@ def caesar_cipher_decrypt(text, shift):
     return caesar_cipher_encrypt(text, -shift)
 
 root = tk.Tk()
-root.title("Caesar Cipher GUI")
+root.title("Secret Messaging")
 
 mainframe = ttk.Frame(root, padding="10")
 mainframe.grid(column=0, row=0, sticky=(tk.W, tk.E, tk.N, tk.S))

@@ -2,7 +2,7 @@
 """ SDEV 140 21A """
 """ 4-20-2023 """
 
-""" Final Project GUI Application using tkinter, Git-hub , breezypythongui  """
+""" Final Project GUI Application using tkinter, Git-hub """
 
 # """ def function for creating general un-sized window """
 
